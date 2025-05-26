@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+  <head> </head>
+
+  <body>
+    <div
+      id="greatGrandparent"
+      style="background-color: black; color: white; padding: 1rem"
+    >
+      Great Grand Parent
+      <div
+        id="grandParent"
+        style="background-color: rgb(218, 54, 54); color: white; padding: 1rem"
+      >
+        Grand Parent
+        <div
+          id="parent"
+          style="
+            background-color: rgb(72, 77, 215);
+            color: white;
+            padding: 1rem;
+          "
+        >
+          Parent
+          <div
+            id="child"
+            style="
+              background-color: rgb(52, 181, 63);
+              color: white;
+              padding: 1rem;
+            "
+          >
+            Child
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let callElement = (event) => {
+        console.table([
+          {
+            descsription: "event is parent clicked",
+            target: event.target,
+            currentTarget: event.currentTarget,
+          },
+        ]);
+      };
+      document.getElementById("parent").addEventListener("click", (e) => {
+        callElement(e);
+      });
+    </script>
+  </body>
+</html>
