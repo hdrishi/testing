@@ -4,6 +4,7 @@
   <head> </head>
 
   <body>
+    Hrishikesh Das
     <div
       id="greatGrandparent"
       style="background-color: black; color: white; padding: 1rem"
@@ -37,7 +38,7 @@
       </div>
     </div>
     <script>
-      let callElement = (event) => {
+      let callParent = (event) => {
         console.table([
           {
             descsription: "event is parent clicked",
@@ -46,9 +47,65 @@
           },
         ]);
       };
-      document.getElementById("parent").addEventListener("click", (e) => {
-        callElement(e);
-      });
+
+      let callGrandParent = (event) => {
+        console.table([
+          {
+            descsription: "event is grand parent clicked",
+            target: event.target,
+            currentTarget: event.currentTarget,
+          },
+        ]);
+      };
+
+      let callChild = (event) => {
+        console.table([
+          {
+            descsription: "event is child clicked",
+            target: event.target,
+            currentTarget: event.currentTarget,
+          },
+        ]);
+      };
+
+      let callGreatGrandParent = (event) => {
+        console.table([
+          {
+            descsription: "event is great grand parent clicked",
+            target: event.target,
+            currentTarget: event.currentTarget,
+          },
+        ]);
+      };
+
+      document.getElementById("parent").addEventListener(
+        "click",
+        (e) => {
+          callParent(e);
+        },
+        true
+      );
+      document.getElementById("grandParent").addEventListener(
+        "click",
+        (e) => {
+          callGrandParent(e);
+        },
+        true
+      );
+      document.getElementById("child").addEventListener(
+        "click",
+        (e) => {
+          callChild(e);
+        },
+        true
+      );
+      document.getElementById("greatGrandparent").addEventListener(
+        "click",
+        (e) => {
+          callGreatGrandParent(e);
+        },
+        true
+      );
     </script>
   </body>
 </html>
